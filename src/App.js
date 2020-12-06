@@ -11,6 +11,7 @@ function App() {
   const [password, setPassword] = useState("")
 
   const handleLogin = async () => {
+    window.history.pushState("", "", `/login?email=${email}&password=${password}`);
     const response = await login({ email, password })
     toast(response.data.message);
   }
